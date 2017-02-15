@@ -1,12 +1,22 @@
-<h1>Bibipedia</h1>
-
-<ul>
-  <% @articles.each do |article| %>
-    <li> <%= article.title %> <br>
-        <%= article.content.truncate_words(5) %>
-    <%= link_to "Read article", article_path(article) %>
-    </li>
-  <% end %>
-</ul>
+<div class="header"><h1>Bibipedia</h1>
 
 <%= link_to "Write an article", new_article_path %>
+
+</div>
+
+<div class="wrapper">
+  <div class="container">
+
+    <% @articles.each do |article| %>
+    <div class="row">
+      <div class="col-xs-12">
+        <div class="summary-box">
+          <h3> <%= article.title %> </h3> <br>
+          <%= article.content.truncate_words(5) %>
+          <%= link_to "Read article", article_path(article) %>
+        </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
